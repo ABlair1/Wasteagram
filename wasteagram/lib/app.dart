@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 
 class App extends StatefulWidget {
+
+  final String appTitle = 'Wasteagram';
+
   const App({ Key? key }) : super(key: key);
 
   @override
@@ -10,8 +13,9 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      
+    return MaterialApp(
+      title: widget.appTitle,
+      home: Scaffold(appBar: AppBar(title: Text('Placeholder'),), body: Center(),)
     );
   }
 }
