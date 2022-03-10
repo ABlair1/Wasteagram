@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:wasteagram/components/post_list.dart';
 import 'package:wasteagram/screens/new_post_screen.dart';
 
 class PostListScreen extends StatelessWidget {
@@ -15,7 +16,7 @@ class PostListScreen extends StatelessWidget {
         title: Text(title),
         centerTitle: true,
       ),
-      body: const Placeholder(),
+      body: const PostList(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.photo_camera),
         onPressed: () => Navigator.of(context).pushNamed(NewPostScreen.routeName),
