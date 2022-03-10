@@ -3,7 +3,6 @@ import 'package:wasteagram/components/pop_button.dart';
 
 class NewPostScreen extends StatelessWidget {
 
-  static const routeName = 'newPost';
   final title = 'New Post';
 
   const NewPostScreen({ Key? key }) : super(key: key);

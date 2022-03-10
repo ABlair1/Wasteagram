@@ -19,7 +19,15 @@ class PostListScreen extends StatelessWidget {
       body: const PostList(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.photo_camera),
-        onPressed: () => Navigator.of(context).pushNamed(NewPostScreen.routeName),
+        onPressed: () {
+          Navigator.push(
+            context, 
+            MaterialPageRoute(
+              builder: (context) => NewPostScreen()
+            )
+          );
+        }
+        // onPressed: () => Navigator.of(context).pushNamed(NewPostScreen.routeName),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );

@@ -6,11 +6,11 @@ import 'package:wasteagram/screens/post_list_screen.dart';
 class App extends StatefulWidget {
 
   static const String appTitle = 'Wasteagram';
-  static final routes = {
-    PostListScreen.routeName: (context) => const PostListScreen(),
-    PostDetailScreen.routeName: (context) => const PostDetailScreen(),
-    NewPostScreen.routeName: (context) => const NewPostScreen(),
-  };
+  // static final routes = {
+  //   PostListScreen.routeName: (context) => const PostListScreen(),
+  //   PostDetailScreen.routeName: (context) => const PostDetailScreen(),
+  //   NewPostScreen.routeName: (context) => const NewPostScreen(),
+  // };
 
   const App({ Key? key }) : super(key: key);
 
@@ -21,10 +21,11 @@ class App extends StatefulWidget {
 class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: App.appTitle,
-      routes: App.routes,
-      initialRoute: PostListScreen.routeName,
+      home: PostListScreen(),
+      // routes: App.routes,
+      // initialRoute: PostListScreen.routeName,
     );
   }
 }
