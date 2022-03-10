@@ -1,10 +1,11 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:wasteagram/components/post_list.dart';
 import 'package:wasteagram/screens/new_post_screen.dart';
+import 'package:image_picker/image_picker.dart';
 
 class PostListScreen extends StatelessWidget {
 
-  static const routeName = 'postList';
   final title = 'Wasteagram';
 
   const PostListScreen({ Key? key }) : super(key: key);
@@ -19,15 +20,17 @@ class PostListScreen extends StatelessWidget {
       body: const PostList(),
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.photo_camera),
-        onPressed: () {
-          Navigator.push(
-            context, 
-            MaterialPageRoute(
-              builder: (context) => NewPostScreen()
-            )
-          );
+        onPressed: () async {
+          XFile? image = await ImagePicker().pickImage(source: ImageSource.gallery);
+          if (image != null) {
+            Navigator.push(
+              context, 
+              MaterialPageRoute(
+                builder: (context) => NewPostScreen(image: image,)
+              )
+            );
+          }
         }
-        // onPressed: () => Navigator.of(context).pushNamed(NewPostScreen.routeName),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
