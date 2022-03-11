@@ -101,8 +101,9 @@ class _NewPostScreenState extends State<NewPostScreen> {
                   var latitude = locationData!.latitude;
                   var longitude = locationData!.longitude;
                   String imageURL = await uploadImage(widget.image);
-                  Timestamp date = Timestamp.fromDate(DateTime.now());
-                  String postID = DateTime.now().millisecondsSinceEpoch.toString();
+                  DateTime currentDate = DateTime.now();
+                  Timestamp date = Timestamp.fromDate(currentDate);
+                  String postID = currentDate.millisecondsSinceEpoch.toString();
                   FirebaseFirestore.instance
                     .collection(widget.collectionName).doc(postID).set({
                       'date': date, 
