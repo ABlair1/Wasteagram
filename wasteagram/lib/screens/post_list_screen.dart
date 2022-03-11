@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:wasteagram/components/post_list.dart';
 import 'package:wasteagram/screens/new_post_screen.dart';
@@ -26,7 +25,7 @@ class PostListScreen extends StatelessWidget {
             Navigator.push(
               context, 
               MaterialPageRoute(
-                builder: (context) => NewPostScreen(image: image,)
+                builder: (context) => NewPostScreen(image: image)
               )
             );
           }
