@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:wasteagram/screens/post_detail_screen.dart';
-import 'package:intl/intl.dart';
 import 'package:wasteagram/components/waste_quantity.dart';
 import 'package:wasteagram/components/waste_date.dart';
+import 'package:wasteagram/components/create_post_map.dart';
+import 'package:wasteagram/models/post_data.dart';
+import 'package:wasteagram/screens/post_detail_screen.dart';
 
 class PostList extends StatefulWidget {
   const PostList({ Key? key }) : super(key: key);
@@ -28,10 +29,12 @@ class _PostListState extends State<PostList> {
                 title: WasteDate(date: post['date'].toDate()),
                 trailing: WasteQuantity(quantity: post['quantity']),
                 onTap: () {
+                  var postMap = createPostMap(post);
+                  var postData = PostData.fromCloudFirestore(postMap);
                   Navigator.push(
                     context, 
                     MaterialPageRoute(
-                      builder: (context) => PostDetailScreen()
+                      builder: (context) => PostDetailScreen(postData: postData,)
                     ),
                   );
                 },

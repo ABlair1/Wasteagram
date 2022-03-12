@@ -2,17 +2,12 @@ import 'dart:io';
 import 'dart:core';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:location/location.dart';
 import 'package:wasteagram/components/pop_button.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wasteagram/components/upload_image.dart';
 import 'package:wasteagram/components/find_location.dart';
 import 'package:wasteagram/components/post_alert.dart';
-
-void uploadPost(String imageURL, int quantity) {
-
-}
 
 class NewPostScreen extends StatefulWidget {
 

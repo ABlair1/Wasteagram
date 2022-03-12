@@ -19,10 +19,10 @@ class PostData {
     return PostData(
       id: post['date'].toDate().millisecondsSinceEpoch.toString(), 
       date: post['date'].toDate(), 
-      imageURL: post['imageURL'].toString(), 
-      latitude: double.parse(post['latitude']), 
-      longitude: double.parse(post['longitude']), 
-      quantity: int.parse(post['quantity']),
+      imageURL: post['imageURL'], 
+      latitude: post['latitude'], 
+      longitude: post['longitude'], 
+      quantity: post['quantity'],
     );
   }
 }
