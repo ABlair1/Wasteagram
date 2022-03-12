@@ -7,6 +7,7 @@ class PostDetailScreen extends StatelessWidget {
 
   final title = 'Wasteagram';
   final PostData postData;
+  final backButtonHint = 'Go back to the post list screen';
 
   const PostDetailScreen({ Key? key, required this.postData }) : super(key: key);
 
@@ -16,7 +17,12 @@ class PostDetailScreen extends StatelessWidget {
       appBar: AppBar(
         title: Text(title),
         centerTitle: true,
-        leading: const PopButton(),
+        leading: Semantics(
+          button: true,
+          enabled: true,
+          onTapHint: backButtonHint,
+          child: const PopButton(),
+        ),
       ),
       body: PostDetail(postData: postData),
     );
