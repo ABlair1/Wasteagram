@@ -25,7 +25,7 @@ class _PostListState extends State<PostList> {
     return StreamBuilder(
       stream: FirebaseFirestore.instance.collection('posts').orderBy('date', descending: true).snapshots(),
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-        if (snapshot.hasData) {
+        if (snapshot.hasData && snapshot.data!.docs.isNotEmpty) {
           return ListView.builder(
             itemCount: snapshot.data!.docs.length,
             itemBuilder: (context, index) {

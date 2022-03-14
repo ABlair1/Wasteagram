@@ -24,15 +24,13 @@ class PostListScreenState extends State<PostListScreen> {
         title: StreamBuilder(
           stream: FirebaseFirestore.instance.collection('posts').snapshots(),
           builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+            int totalWaste = 0;
             if (snapshot.hasData) {
-              int totalWaste = 0;
               snapshot.data!.docs.forEach((post) {
                 totalWaste += int.parse(post['quantity'].toString());
               });
-              return Text('$title - $totalWaste');
-            } else {
-              return Text(title);
             }
+            return Text('$title - $totalWaste');
           },
         ),
         // title: Text(title),
